@@ -67,7 +67,7 @@ results <- rbind(of_results, pocock_results)
 # Plot the results using ggplot2
 ggplot(results, aes(x = Information_Time, y = Alpha, color = Type, linetype = Type)) +
     geom_point() +
-    geom_line() +
+    geom_line(linetype = "solid", lwd = 1.2) +
     geom_text(aes(label = sprintf("%.5f", Alpha)), hjust = -0.2, vjust = 0.5) +
     labs(title = "Alpha Allocation in Each Analysis",
          x = "Information Time",
