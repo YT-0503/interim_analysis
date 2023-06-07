@@ -9,13 +9,13 @@ of_alpha_spending <- function(t, alpha){
 }
 
 # Number of analyses
-n_analyses <- 4
+n_analyses <- 5
 
 # Overall alpha level
 overall_alpha <- 0.02500
 
 # Information times for each analysis
-information_times <- c(0, 0.4, 0.5, 1.0)
+information_times <- c(0.00, 0.25, 0.05, 0.75, 1.00)
 
 # Calculate alpha values for each analysis (O'Brien-Fleming)
 of_alpha_values <- rep(0, n_analyses)
@@ -35,7 +35,7 @@ pocock_alpha_differences <- c(pocock_alpha_values[1], diff(pocock_alpha_values))
 
 # Display alpha values and differences for each analysis
 for (i in 1:n_analyses){
-    cat(sprintf("Analysis %d: Information Time = %.2f\n", i, information_times[i]))
+    cat(sprintf("Analysis %d: Information Time = %.3f\n", i, information_times[i]))
     cat(sprintf(" O'Brien-Fleming Alpha = %.10f\n", of_alpha_values[i]))
     cat(sprintf(" Pocock Alpha = %.10f\n", pocock_alpha_values[i]))
     cat(sprintf(" O'Brien-Fleming Alpha Difference = %.10f\n", of_alpha_differences[i]))
