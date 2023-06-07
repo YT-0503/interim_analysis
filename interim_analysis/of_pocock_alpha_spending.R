@@ -15,7 +15,7 @@ n_analyses <- 5
 overall_alpha <- 0.02500
 
 # Information times for each analysis
-information_times <- c(0.00, 0.25, 0.05, 0.75, 1.00)
+information_times <- c(0.00, 0.25, 0.50, 0.75, 1.00)
 
 # Calculate alpha values for each analysis (O'Brien-Fleming)
 of_alpha_values <- rep(0, n_analyses)
