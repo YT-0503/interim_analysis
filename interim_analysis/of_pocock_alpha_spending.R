@@ -18,34 +18,26 @@ overall_alpha <- 0.0250
 information_times <- c(0.00, 0.25, 0.50, 0.75, 1.00)
 
 # Calculate alpha values for each analysis (Pocock)
-pocock_alpha_values <- rep(0, n_analyses)
-for (i in 1:n_analyses) {
-    pocock_alpha_values[i] <- pocock_alpha_spending(information_times[i], overall_alpha)
-}
+pocock_alpha_values <- sapply(information_times, pocock_alpha_spending, alpha = overall_alpha)
 
 # Calculate alpha values for each analysis (O'Brien-Fleming)
-of_alpha_values <- rep(0, n_analyses)
-for (i in 1:n_analyses) {
-    of_alpha_values[i] <- of_alpha_spending(information_times[i], overall_alpha)
-}
+of_alpha_values <- sapply(information_times, of_alpha_spending, alpha = overall_alpha)
 
 # Calculate alpha differences
 pocock_alpha_differences <- c(pocock_alpha_values[1], diff(pocock_alpha_values))
 of_alpha_differences <- c(of_alpha_values[1], diff(of_alpha_values))
 
 # Calculate alpha differences for Pocock and O'Brien-Fleming
-pocock_of_alpha_deifferences <- c(pocock_alpha_differences[1] - of_alpha_differences[1], diff(pocock_alpha_differences - of_alpha_differences))
+pocock_of_alpha_differences <- pocock_alpha_differences - of_alpha_differences
 
 # Display alpha values and differences for each analysis
 for (i in 1:n_analyses){
     cat(sprintf("Analysis %d: Information Time = %.2f\n", i, information_times[i]))
-    cat(sprintf(" Pocock Alpha = %.5f\n", pocock_alpha_values[i]))
     cat(sprintf(" Pocock Alpha Differences = %.5f\n", pocock_alpha_differences[i]))
-    cat(sprintf(" O'Brien-Fleming Alpha = %.5f\n", of_alpha_values[i]))
     cat(sprintf(" O'Brien-Fleming Alpha Difference = %.5f\n", of_alpha_differences[i]))
     cat(sprintf(" Pocock Of Alpha Differences = %.5f\n", pocock_of_alpha_differences[i]))
 }    
-   
+
 library(ggplot2)
 
 # Create a data frame for the results
