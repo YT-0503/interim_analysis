@@ -12,7 +12,7 @@ of_alpha_spending <- function(t, alpha){
 n_analyses <- 5
 
 # Overall alpha level
-overall_alpha <- 0.02500
+overall_alpha <- 0.0250
 
 # Information times for each analysis
 information_times <- c(0.00, 0.25, 0.50, 0.75, 1.00)
@@ -35,11 +35,11 @@ pocock_alpha_differences <- c(pocock_alpha_values[1], diff(pocock_alpha_values))
 
 # Display alpha values and differences for each analysis
 for (i in 1:n_analyses){
-    cat(sprintf("Analysis %d: Information Time = %.3f\n", i, information_times[i]))
-    cat(sprintf(" O'Brien-Fleming Alpha = %.10f\n", of_alpha_values[i]))
-    cat(sprintf(" Pocock Alpha = %.10f\n", pocock_alpha_values[i]))
-    cat(sprintf(" O'Brien-Fleming Alpha Difference = %.10f\n", of_alpha_differences[i]))
-    cat(sprintf(" Pocock Alpha Differences = %.10f\n", pocock_alpha_differences[i]))
+    cat(sprintf("Analysis %d: Information Time = %.2f\n", i, information_times[i]))
+    cat(sprintf(" O'Brien-Fleming Alpha = %.5f\n", of_alpha_values[i]))
+    cat(sprintf(" Pocock Alpha = %.5f\n", pocock_alpha_values[i]))
+    cat(sprintf(" O'Brien-Fleming Alpha Difference = %.5f\n", of_alpha_differences[i]))
+    cat(sprintf(" Pocock Alpha Differences = %.5f\n", pocock_alpha_differences[i]))
 }
 
 library(ggplot2)
@@ -67,7 +67,7 @@ results <- rbind(of_results, pocock_results)
 # Plot the results using ggplot2
 ggplot(results, aes(x = Information_Time, y = Alpha, color = Type, linetype = Type)) +
     geom_point() +
-    geom_line(linetype = "solid", lwd = 1.2) +
+    geom_line(linetype = "solid", lwd = 1.1) +
     geom_text(aes(label = sprintf("%.5f", Alpha)), hjust = -0.2, vjust = 0.5) +
     labs(title = "Alpha Allocation in Each Analysis",
          x = "Information Time",
