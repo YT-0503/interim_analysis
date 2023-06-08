@@ -35,7 +35,7 @@ pocock_alpha_differences <- c(pocock_alpha_values[1], diff(pocock_alpha_values))
 of_alpha_differences <- c(of_alpha_values[1], diff(of_alpha_values))
 
 # Calculate alpha differences for Pocock and O'Brien-Fleming
-pocock_of_alpha_deifferences <- pocock_alpha_values - of_alpha_values
+pocock_of_alpha_deifferences <- pocock_alpha_differences - of_alpha_differences
 
 # Display alpha values and differences for each analysis
 for (i in 1:n_analyses){
