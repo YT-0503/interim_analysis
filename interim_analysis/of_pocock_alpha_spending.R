@@ -32,7 +32,7 @@ for (i in 1:n_analyses) {
 # Calculate alpha differences
 pocock_alpha_differences <- c(pocock_alpha_values[1], diff(pocock_alpha_values))
 of_alpha_differences <- c(of_alpha_values[1], diff(of_alpha_values))
-pocock_of_alpha_differences <- c(pocock_alpha_differences[1] - of_alpha_differences[1], diff(pocock_alpha_differences - of_alpha_diffeences))
+pocock_of_alpha_differences <- c(pocock_alpha_differences[1] - of_alpha_differences[1], diff(pocock_alpha_differences - of_alpha_differences))
 
 # Display alpha values and differences for each analysis
 for (i in 1:n_analyses){
