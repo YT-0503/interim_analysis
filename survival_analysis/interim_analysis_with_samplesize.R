@@ -4,11 +4,11 @@ library(survminer)
 
 # Set the parameters
 set.seed(123)  # Seed value for reproducibility
-n_control <- 250  # Sample size of the control group
-n_treatment <- 500  # Sample size of the treatment group
+n_control <- 500  # Sample size of the control group
+n_treatment <- 250  # Sample size of the treatment group
 alpha <- 0.025  # Significance level
 power <- 0.9  # Power
-interim_time <- 50
+interim_time <- 10
 # Generate survival time data
 control_survival <- rexp(n_control, rate = 0.1)  # Survival times of the control group
 treatment_survival <- rexp(n_treatment, rate = 0.08)  # Survival times of the treatment group
