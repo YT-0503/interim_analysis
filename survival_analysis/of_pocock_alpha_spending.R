@@ -71,7 +71,7 @@ ggplot(results, aes(x = Information_Time, y = Alpha, color = Type, linetype = Ty
     #geom_text(aes(label = sprintf("%.5f", Alpha)), hjust = -0.2, vjust = 0.5) +
     labs(title = "Alpha Allocation in Each Analysis",
          x = "Information Time",
-         y = "Alpha") +
+         y = "Cumulative Alpha") +
     theme_minimal() +
     theme(
         # axis
