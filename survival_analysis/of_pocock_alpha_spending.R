@@ -9,13 +9,13 @@ of_alpha_spending <- function(t, alpha){
 }
 
 # Number of analyses
-n_analyses <- 101
+n_analyses <- 10001
 
 # Overall alpha level
 overall_alpha <- 0.02500
 
 # Information times for each analysis
-information_times <- seq(0, 1, by = 0.01)
+information_times <- seq(0, 1, by = 0.0001)
 
 # Calculate alpha values for each analysis (O'Brien-Fleming)
 of_alpha_values <- rep(0, n_analyses)
@@ -72,4 +72,11 @@ ggplot(results, aes(x = Information_Time, y = Alpha, color = Type, linetype = Ty
     labs(title = "Alpha Allocation in Each Analysis",
          x = "Information Time",
          y = "Alpha") +
-    theme_minimal()
+    theme_minimal() +
+    theme(
+        # axis
+        plot.title = element_text(size = rel(1.5), face="bold"),
+        axis.title = element_text(size=rel(1.5)),
+        axis.text = element_text(size=rel(1.5))
+    ) +
+    scale_y_continuous(labels = scales::number_format(accuracy = 0.00001))
